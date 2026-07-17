@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>双链每日快讯 · 仪表盘索引</title>
+<style>
+:root {
+  --bg: #f5f7fa;
+  --card-bg: #ffffff;
+  --text-primary: #1a1a2e;
+  --text-secondary: #555;
+  --text-muted: #888;
+  --border: #e8ecf1;
+  --accent: #1a73e8;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --radius: 12px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+.header {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  color: #fff;
+  padding: 40px 40px 32px;
+  text-align: center;
+}
+.header h1 { font-size: 26px; font-weight: 700; margin-bottom: 6px; }
+.header .subtitle { font-size: 14px; opacity: 0.7; }
+.container {
+  max-width: 900px;
+  margin: -20px auto 40px;
+  padding: 0 24px;
+}
+.intro-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px 28px;
+  margin-bottom: 24px;
+}
+.intro-card h2 { font-size: 16px; margin-bottom: 8px; }
+.intro-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+.day-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.day-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px 24px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s, box-shadow 0.15s;
+  border-left: 4px solid var(--accent);
+}
+.day-card:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.day-card .left { display: flex; align-items: center; gap: 16px; }
+.day-card .date-icon {
+  width: 48px; height: 48px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #e8f0fe, #d4e4fc);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.day-card .date-icon .month { font-size: 11px; color: var(--accent); font-weight: 600; }
+.day-card .date-icon .day { font-size: 20px; color: var(--text-primary); font-weight: 700; line-height: 1; }
+.day-card .info h3 { font-size: 15px; margin-bottom: 2px; }
+.day-card .info .meta { font-size: 12px; color: var(--text-muted); }
+.day-card .arrow { font-size: 20px; color: var(--text-muted); }
+.day-card.today { border-left-color: #e63946; }
+.day-card.today .date-icon { background: linear-gradient(135deg, #fff5f5, #ffebee); }
+.day-card.today .date-icon .month { color: #e63946; }
+.badge-new {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: #e63946;
+  color: #fff;
+  margin-left: 8px;
+}
+.footer {
+  text-align: center;
+  padding: 24px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>双链每日快讯 · 供应链信号仪表盘</h1>
+  <div class="subtitle">每日全球前沿产业供应链动态追踪 · 历史归档索引</div>
+</div>
+
+<div class="container">
+  <div class="intro-card">
+    <h2>使用说明</h2>
+    <p>点击下方日期卡片可打开对应日期的可视化仪表盘。每日更新会生成新的独立文件，历史数据永久保留不会覆盖。</p>
+  </div>
+
+  <div class="day-list" id="dayList">
+    <!-- 日期卡片由 JS 动态生成，也可手动添加 -->
+    
+    <a class="day-card today" href="dashboard-20260717.html">
+      <div class="left">
+        <div class="date-icon">
+          <span class="month">7月</span>
+          <span class="day">17</span>
+        </div>
+        <div class="info">
+          <h3>2026年7月17日 · 星期五 <span class="badge-new">最新</span></h3>
+          <div class="meta">10条快讯 · 8个领域 · 6个国家/地区 · 2项投资披露</div>
+        </div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+    <a class="day-card" href="dashboard-20260716.html">
+      <div class="left">
+        <div class="date-icon">
+          <span class="month">7月</span>
+          <span class="day">16</span>
+        </div>
+        <div class="info">
+          <h3>2026年7月16日 · 星期四</h3>
+          <div class="meta">25条快讯 · 9个领域 · 7个国家/地区 · 5项投资披露</div>
+        </div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+    <a class="day-card" href="dashboard-20260715.html">
+      <div class="left">
+        <div class="date-icon">
+          <span class="month">7月</span>
+          <span class="day">15</span>
+        </div>
+        <div class="info">
+          <h3>2026年7月15日 · 星期三</h3>
+          <div class="meta">16条快讯 · 9个领域 · 7个国家/地区 · 6项投资披露</div>
+        </div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+    <a class="day-card" href="dashboard-20260714.html">
+      <div class="left">
+        <div class="date-icon">
+          <span class="month">7月</span>
+          <span class="day">14</span>
+        </div>
+        <div class="info">
+          <h3>2026年7月14日 · 星期二</h3>
+          <div class="meta">12条快讯 · 6个领域 · 7个国家/地区 · 4项投资披露</div>
+        </div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+  </div>
+</div>
+
+<div class="footer">
+  <p>双链每日快讯 · 供应链信号仪表盘索引 &nbsp;|&nbsp; 每日自动归档，历史不覆盖</p>
+</div>
+
+</body>
+</html>
